@@ -29,14 +29,12 @@ export const useAuthStore = defineStore("auth", {
           email,
           password,
         });
-        // Response: { token: "QpwL5tke4Pnpja7X4" }
         this.token = response.data.token;
         this.userEmail = email;
         this.error = null;
         localStorage.setItem("jwt", this.token);
         localStorage.setItem("userEmail", email);
       } catch (error: any) {
-        // Extract message from API error or fallback
         this.error = error.response?.data?.error || "Login failed";
         this.token = null;
         this.userEmail = null;
@@ -55,9 +53,7 @@ export const useAuthStore = defineStore("auth", {
           email,
           password,
         });
-        // Response: { token: "QpwL5tke4Pnpja7X4" }
-        // this.token = response.data.token;
-        // this.userEmail = email;
+
         this.error = null;
         localStorage.setItem("jwt", this.token);
         localStorage.setItem("userEmail", email);
